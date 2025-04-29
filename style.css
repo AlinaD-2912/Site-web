@@ -64,7 +64,9 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #0077b6;
+    background: linear-gradient(to right, #ff19ec, #00ffff);
+    color: white;
+    font-weight: bold;
 }
 
 .show {
@@ -74,4 +76,26 @@
 .images-feed img {
     width: 100%;
     height: auto;
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.button-left {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    height: 30px;
+}
+
+.site-title {
+    margin-left: 8px;
+    font-weight: bold;
 }

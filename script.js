@@ -1,89 +1,69 @@
-/*-- DROPDOWN MENU --*/
+// --- DROPDOWN MENU ---
 
 function toggleDropdown() {
-    //prend le boutton du dropdown par son id
     document.getElementById("DropdownMenu").classList.toggle("show");
 }
 
-function addDropdownItems() {
+function setupDropdown() {
+    const button = document.getElementById("dropdownButton");
     const dropdown = document.getElementById("DropdownMenu");
 
-    const dropdownJeux = document.getElementById("DropdownMenuJeux");
-    const dropdownGallery = document.getElementById("DropdownMenuGallery");
+    if (!button || !dropdown) return;
 
+    // Setup button content
+    button.innerHTML = `
+        <div class="button-wrapper">
+            <div class="button-left">
+                <img src="images/left-align.png" alt="Dropdown menu" class="icon">
+                <span class="site-title">StraySpawn</span>
+            </div>
+            <img src="images/cat.png" alt="Site Logo" class="icon">
+        </div>
+    `;
 
-    const items = [
-        { name: "Feed", href: "index.html" },
-        { name: "Jeux", href: "jeux.html" },
-        { name: "Gallery", href: "gallery.html" },
-    ];
-
-    items.forEach(item => {
+    // Use imported dropdownItems
+    dropdownItems.forEach(item => {
         const link = document.createElement('a');
         link.href = item.href;
         link.textContent = item.name;
-        if (dropdown) dropdown.appendChild(link);
-
+        dropdown.appendChild(link);
     });
 }
 
-// load
 
-window.addEventListener("DOMContentLoaded", () => {
-    const button = document.getElementById("dropdownButton");
-    if (button) {
-        button.innerHTML = `
-            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 10px;">
-                <div style="display: flex; align-items: center;">
-                    <img src="images/left-align.png" alt="Dropdown menu" style="height:30px;">
-                    <span style="margin-left: 8px;">StraySpawn</span>
-                </div>
-                <img src="images/cat.png" alt="Site Logo" style="height:30px; ">
+// --- FEED ---
+
+function loadFeed() {
+    const feedContainer = document.querySelector('.feed');
+    feedContainer.innerHTML = '';
+
+    gamesFeed.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.className = 'post';
+        postElement.innerHTML = `
+            <div class="images-feed">
+                <img src="${post.image}" alt="${post.nomDeJeu}" />
+            </div>
+            <div class="post-content">
+                <h3>${post.nomDeJeu}</h3>
+                <p>${post.description}</p>
             </div>
         `;
-    }
+        feedContainer.appendChild(postElement);
+    });
+}
 
-    addDropdownItems();
+// --- INITIALIZE EVERYTHING ---
 
-    //fetch feed
+function init() {
+    setupDropdown();
     loadFeed();
 
-    // boutton refraichir
     const refreshButton = document.getElementById("refreshButton");
     if (refreshButton) {
         refreshButton.addEventListener("click", loadFeed);
     }
-});
-
-/*-- FEED --*/
-function loadFeed() {
-    const feedContainer = document.querySelector('.feed');
-    feedContainer.innerHTML = '';  // Clear current feed
-
-    // fetch en utilisant le data de data.js
-    gamesFeed.forEach(post => {
-        createPost(post, feedContainer);
-    });
 }
 
-// creation dynamique de contenu
-function createPost(postData, feedContainer) {
-    const postElement = document.createElement('div');
-    //changer les classes 
-    postElement.classList.add('post'); 
-
-    postElement.innerHTML = `
-        <div class="images-feed">
-            <img src="${postData.image}" alt="${postData.nomDeJeu}" />
-        </div>
-        <div class="post-content">
-            <h3>${postData.nomDeJeu}</h3>
-            <p>${postData.description}</p>
-        </div>
-    `;
-
-    feedContainer.appendChild(postElement);
-}
-
-
-
+// actualiser la page
+document.addEventListener("DOMContentLoaded", init);

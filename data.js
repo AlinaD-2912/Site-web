@@ -1,3 +1,11 @@
+/*--  DROPDOWN MENU  --*/
+const dropdownItems = [
+    { name: "Feed", href: "index.html" },
+    { name: "Jeux", href: "jeux.html" },
+    { name: "Gallery", href: "gallery.html" }
+];
+
+
 /*-- FEED DATA  --*/
 const gamesFeed = [
     {
@@ -16,3 +24,4 @@ const gamesFeed = [
         image: 'images/gta.jpeg'
     }
 ];
+
