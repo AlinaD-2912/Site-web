@@ -73,7 +73,7 @@ function createPost(postData, feedContainer) {
     postElement.classList.add('post'); 
 
     postElement.innerHTML = `
-        <div class="post-image">
+        <div class="images-feed">
             <img src="${postData.image}" alt="${postData.nomDeJeu}" />
         </div>
         <div class="post-content">
