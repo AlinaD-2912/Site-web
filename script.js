@@ -31,15 +31,10 @@ function setupDropdown() {
 }
 
 // -----   H1 ----
-/*
 let displayElement = document.getElementById('h1-accueil')
-let h1Content = '<h1>'
-h1Content += `  <h1> 
-                    Actualités des jeux vidéo
-                </h1> `
-h1Content = '</p>'
-displayElement.inh1nerHTML = h1Content
-*/
+let h1Content = 'Actualités des jeux vidéo'
+displayElement.innerHTML = h1Content
+
 
 // --- FEED ---
 function loadFeed() {
