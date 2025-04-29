@@ -22,17 +22,8 @@ function addDropdownItems() {
         link.href = item.href;
         link.textContent = item.name;
 
-        const link1 = document.createElement('a');
-        link1.href = item.href;
-        link1.textContent = item.name;
-
-        const link2 = document.createElement('a');
-        link2.href = item.href;
-        link2.textContent = item.name;
-
         if (dropdown) dropdown.appendChild(link);
-        if (dropdownJeux) dropdownJeux.appendChild(link1);
-        if (dropdownGallery) dropdownGallery.appendChild(link2);
+
     });
 }
 
