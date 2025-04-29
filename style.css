@@ -12,10 +12,32 @@
     cursor: pointer;
 }
 
-.dropbtn:hover,
-.dropbtn:focus {
-    background-color: #2980B9;
+/* STYLE DROPDOWN GRADIENT  */
+.dropbtn::after,
+.dropbtn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #ff19ec, #00ffff);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
 }
+
+.dropbtn::before {
+    top: -5px;
+    transform-origin: left;
+}
+
+.dropbtn:hover::after,
+.dropbtn:hover::before {
+    transform: scaleX(1);
+}
+
+/* FIN DE GRADIENT */
 
 .dropdown {
     position: relative;
