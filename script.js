@@ -1,11 +1,16 @@
 /*-- DROPDOWN MENU --*/
 
 function toggleDropdown() {
+    //prend le boutton du dropdown par son id
     document.getElementById("DropdownMenu").classList.toggle("show");
 }
 
 function addDropdownItems() {
     const dropdown = document.getElementById("DropdownMenu");
+
+    const dropdownJeux = document.getElementById("DropdownMenuJeux");
+    const dropdownGallery = document.getElementById("DropdownMenuGallery");
+
 
     const items = [
         { name: "Feed", href: "index.html" },
@@ -18,10 +23,12 @@ function addDropdownItems() {
         link.href = item.href;
         link.textContent = item.name;
         if (dropdown) dropdown.appendChild(link);
+
     });
 }
 
-// Load event
+// load
+
 window.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("dropdownButton");
     if (button) {
@@ -35,6 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
     }
+
     addDropdownItems();
 
     //fetch feed
@@ -76,3 +84,6 @@ function createPost(postData, feedContainer) {
 
     feedContainer.appendChild(postElement);
 }
+
+
+
