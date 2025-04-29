@@ -2,6 +2,7 @@
     background-color: #efeff0;
 }
 
+
 /*  MENU DROPDOWN  */
 .dropbtn {
     background-color: #efeff0;
@@ -11,6 +12,7 @@
     border: none;
     cursor: pointer;
 }
+
 
 /* STYLE DROPDOWN GRADIENT  */
 .dropbtn::after,
@@ -36,14 +38,13 @@
 .dropbtn:hover::before {
     transform: scaleX(1);
 }
-
 /* FIN DE GRADIENT */
+
 
 .dropdown {
     position: relative;
     display: inline-block;
-    top: 0;
-    left: 0;
+
 }
 
 .dropdown-content {
@@ -69,10 +70,15 @@
     font-weight: bold;
 }
 
-.show {
+.button-dropdown-affichage {
     display: block;
 }
 
+
+
+
+
+/* ELEMENTS DE NAVIGATION */
 .images-feed img {
     width: 100%;
     height: auto;
@@ -100,3 +106,54 @@
     font-weight: bold;
 }
 
+/* FEED */
+.feed-container-mt {
+    padding: 1rem;
+}
+
+/* Individual post block */
+.div-de-feed{
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for posts */
+.div-de-feed:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Images de feed */
+.images-feed img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Text section */
+.feed-contenu {
+    padding: 1rem;
+}
+
+/* Game title */
+.feed-contenu h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* Game description */
+.feed-contenu p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

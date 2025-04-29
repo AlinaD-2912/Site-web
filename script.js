@@ -1,7 +1,7 @@
 // --- DROPDOWN MENU ---
 
 function toggleDropdown() {
-    document.getElementById("DropdownMenu").classList.toggle("show");
+    document.getElementById("DropdownMenu").classList.toggle("button-dropdown-affichage");
 }
 
 function setupDropdown() {
@@ -30,21 +30,30 @@ function setupDropdown() {
     });
 }
 
+// -----   H1 ----
+/*
+let displayElement = document.getElementById('h1-accueil')
+let h1Content = '<h1>'
+h1Content += `  <h1> 
+                    Actualités des jeux vidéo
+                </h1> `
+h1Content = '</p>'
+displayElement.inh1nerHTML = h1Content
+*/
 
 // --- FEED ---
-
 function loadFeed() {
     const feedContainer = document.querySelector('.feed');
     feedContainer.innerHTML = '';
 
     gamesFeed.forEach(post => {
         const postElement = document.createElement('div');
-        postElement.className = 'post';
+        postElement.className = 'div-de-feed';
         postElement.innerHTML = `
             <div class="images-feed">
                 <img src="${post.image}" alt="${post.nomDeJeu}" />
             </div>
-            <div class="post-content">
+            <div class="feed-contenu">
                 <h3>${post.nomDeJeu}</h3>
                 <p>${post.description}</p>
             </div>
@@ -53,17 +62,9 @@ function loadFeed() {
     });
 }
 
-// --- INITIALIZE EVERYTHING ---
+// --- IINITIALISATION + REFRECH BUTTON ---
 
-function init() {
-    setupDropdown();
-    loadFeed();
+setupDropdown();
+loadFeed();
 
-    const refreshButton = document.getElementById("refreshButton");
-    if (refreshButton) {
-        refreshButton.addEventListener("click", loadFeed);
-    }
-}
 
-// actualiser la page
-document.addEventListener("DOMContentLoaded", init);
