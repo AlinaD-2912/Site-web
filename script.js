@@ -10,7 +10,7 @@ function setupDropdown() {
 
     if (!button || !dropdown) return;
 
-    // Setup button content
+    //ajouter le contenu dans boutton
     button.innerHTML = `
         <div class="button-wrapper">
             <div class="button-left">
@@ -21,7 +21,7 @@ function setupDropdown() {
         </div>
     `;
 
-    // Use imported dropdownItems
+    // importer les elements de data.js
     dropdownItems.forEach(item => {
         const link = document.createElement('a');
         link.href = item.href;
