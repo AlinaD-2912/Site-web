@@ -22,6 +22,21 @@ const gamesFeed = [
         nomDeJeu: 'Grand Theft Auto VI',
         description: 'Grand Theft Auto VI s installe dans l État de Leonida, qui abrite les rues baignées par les néons de Vice City et plus encore.',
         image: 'images/gta.jpeg'
+    },
+    {
+        nomDeJeu: 'Hell is Us',
+        description: 'Si la guerre est ce qui se rapproche le plus de l’enfer sur terre c’est qu’elle abrite le pire des démons : l’Homme. Dans un pays isolé, ravagé par un conflit fratricide, découvrez les secrets de votre passé et affrontez une énigmatique calamité.',
+        image: 'images/hell-is-us.jpg'
+    },
+    {
+        nomDeJeu: 'Lost Soul Aside',
+        description: 'Dans Lost Soul Aside™, embarquez pour une odyssée épique afin de sauver votre jeune sœur, et l humanité tout entière, de mystérieux envahisseurs dimensionnels venus de par-delà les étoiles.',
+        image: 'images/lost-soul.jpg'
+    },
+    {
+        nomDeJeu: 'METAL GEAR SOLID Δ: SNAKE EATER',
+        description: 'Lhistoire, les personnages, les doublages, le gameplay et les musiques qui ont fait sensation font leur retour, dans une nouvelle version conçue pour les consoles modernes. ',
+        image: 'images/metal-gear.webp'
     }
 ];
 
