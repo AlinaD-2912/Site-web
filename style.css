@@ -1,8 +1,11 @@
-/* MENU DROPDOWN */
+* {
+    background-color: #efeff0;
+}
 
+/*  MENU DROPDOWN  */
 .dropbtn {
-    background-color: #3498DB;
-    color: white;
+    background-color: #efeff0;
+    color: rgb(0, 0, 0);
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -14,8 +17,10 @@
   }
   
   .dropdown {
-    position: relative;
+    position: fixed;
     display: inline-block;
+    top: 0;
+    left: 0;
   }
   
   .dropdown-content {
@@ -35,7 +40,11 @@
     display: block;
   }
   
-  .dropdown a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+    background-color: #0077b6	;
+  }
   
-  
+  .show {
+    display: block;
+  }
 

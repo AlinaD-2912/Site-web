@@ -9,46 +9,19 @@
 </head>
 
 <body>
-
     <!-- NAVIGATION MOBILE-->
     <div class="dropdown">
-        <button onclick="toggleDropdown()" class="dropbtn">Dropdown</button>
-        <div id="DropdownMenu" class="dropdown-content">
-          
-        </div>
-      </div>
-
-    <h1></h1>
+        <button id="dropdownButton" onclick="toggleDropdown()" class="dropbtn"></button>
+        <div id="DropdownMenu" class="dropdown-content"></div>
+        <button id="refreshButton">Refresh</button>
+    </div>
 
     <!-- FEED -->
     <div>
-        <div>
-            <img src="" alt="">
-            <h2></h2>
-            <p></p>
-        </div>
-        <div>
-            <img src="" alt="">
-            <h2></h2>
-            <p></p>
-        </div>
-        <div>
-            <img src="" alt="">
-            <h2></h2>
-            <p></p>
-        </div>
-        <div>
-            <img src="" alt="">
-            <h2></h2>
-            <p></p>
-        </div>
-        <div>
-            <img src="" alt="">
-            <h2></h2>
-            <p></p>
-        </div>
+        <div class="feed"></div>
     </div>
-    
+
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 
