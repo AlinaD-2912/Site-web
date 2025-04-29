@@ -1,4 +1,3 @@
-
 /*-- DROPDOWN MENU --*/
 
 function toggleDropdown() {
@@ -8,8 +7,10 @@ function toggleDropdown() {
 
 function addDropdownItems() {
     const dropdown = document.getElementById("DropdownMenu");
+
     const dropdownJeux = document.getElementById("DropdownMenuJeux");
     const dropdownGallery = document.getElementById("DropdownMenuGallery");
+
 
     const items = [
         { name: "Feed", href: "index.html" },
@@ -25,7 +26,9 @@ function addDropdownItems() {
 
     });
 }
+
 // load
+
 window.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("dropdownButton");
     if (button) {
@@ -41,13 +44,46 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     addDropdownItems();
+
+    //fetch feed
+    loadFeed();
+
+    // boutton refraichir
+    const refreshButton = document.getElementById("refreshButton");
+    if (refreshButton) {
+        refreshButton.addEventListener("click", loadFeed);
+    }
 });
 
 /*-- FEED --*/
-const gamesFeed = [
-    {
-        nomDeJeu: 'Subnautica 2',
-        description: 'Un nouveau monde vous attend, aux côtés d’une histoire totalement inédite. Vous êtes un pionnier voyageant vers un monde lointain, mais quelque chose ne tourne pas rond. ',
-        image: ''
-    }
-]
+function loadFeed() {
+    const feedContainer = document.querySelector('.feed');
+    feedContainer.innerHTML = '';  // Clear current feed
+
+    // fetch en utilisant le data de data.js
+    gamesFeed.forEach(post => {
+        createPost(post, feedContainer);
+    });
+}
+
+// creation dynamique de contenu
+function createPost(postData, feedContainer) {
+    const postElement = document.createElement('div');
+    //changer les classes 
+    postElement.classList.add('post'); 
+
+    postElement.innerHTML = `
+        <div class="post-image">
+            <img src="${postData.image}" alt="${postData.nomDeJeu}" />
+        </div>
+        <div class="post-content">
+            <h3>${postData.nomDeJeu}</h3>
+            <p>${postData.description}</p>
+        </div>
+    `;
+
+    feedContainer.appendChild(postElement);
+}
+
+
+
