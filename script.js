@@ -43,28 +43,6 @@ let h1Content = 'Actualités des jeux vidéo';
 if (displayElement) {
     displayElement.innerHTML = h1Content;
 }
-/*
-// --- FEED ---
-function loadFeed() {
-    const feedContainer = document.querySelector('.feed');
-    feedContainer.innerHTML = '';
-
-    gamesFeed.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.className = 'div-de-feed';
-        postElement.innerHTML = `
-            <div class="images-feed">
-                <img src="${post.image}" alt="${post.nomDeJeu}" />
-            </div>
-            <div class="feed-contenu">
-                <h2>${post.nomDeJeu}</h2>
-                <p>${post.description}</p>
-            </div>
-        `;
-        feedContainer.appendChild(postElement);
-    });
-}
-*/
 
 // --- IINITIALISATION + REFRECH BUTTON ---
 toggleDropdown();
@@ -97,4 +75,43 @@ fetch('feedData.json')
     })
     .catch(error => console.error('Erreur lors du chargement du JSON :', error)
 );
+
+const formulaire = document.getElementById("formulaireDynamique")
+//ajouter le contenu dans boutton
+formulaire.innerHTML = `
+<label for="nom">Nom de jeu:</label>
+<input type="text" id="nom" name="Nom" required>
+<label for="msg">Description de jeu&nbsp;:</label>
+<textarea id="msg" name="user_message"></textarea>
+`;
+
+const buttonFromulaire = document.getElementById("formulaireButton")
+buttonFromulaire.innerHTML = "Envoyer" 
+
+
+function ajouterDesArcticles() {
+    const nom = document.getElementById("nom").value.trim();
+    const msg = document.getElementById("msg").value.trim();
+    const feed = document.querySelector(".feed"); 
+
+    if (!nom || !msg) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    const article = document.createElement("div");
+    article.classList.add("article-post");
+    article.innerHTML = `
+    <div class="div-de-feed">
+        <div class="feed-contenu">
+            <h2>${nom}</h2>
+            <p>${msg}</p>
+        </div>
+    </div>
+    `;
+
+    feed.appendChild(article);
+    document.getElementById("formulaireDynamique").reset();
+}
+
 
