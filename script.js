@@ -1,3 +1,6 @@
+
+// ***************************         INDEX HTML       *************************
+
 // --- DROPDOWN MENU ---
 
 function toggleDropdown() {
@@ -22,6 +25,7 @@ function setupDropdown() {
     `;
 
     // importer les elements de data.js
+    console.log(dropdownItems)
     dropdownItems.forEach(item => {
         const link = document.createElement('a');
         link.href = item.href;
@@ -31,9 +35,13 @@ function setupDropdown() {
 }
 
 // -----   H1 ----
-let displayElement = document.getElementById('h1-accueil')
-let h1Content = 'Actualités des jeux vidéo'
-displayElement.innerHTML = h1Content
+let displayElement = document.getElementById('h1-accueil');
+let h1Content = 'Actualités des jeux vidéo';
+
+// if element exists
+if (displayElement) {
+    displayElement.innerHTML = h1Content;
+}
 
 
 // --- FEED ---
@@ -49,7 +57,7 @@ function loadFeed() {
                 <img src="${post.image}" alt="${post.nomDeJeu}" />
             </div>
             <div class="feed-contenu">
-                <h3>${post.nomDeJeu}</h3>
+                <h2>${post.nomDeJeu}</h2>
                 <p>${post.description}</p>
             </div>
         `;
@@ -58,7 +66,7 @@ function loadFeed() {
 }
 
 // --- IINITIALISATION + REFRECH BUTTON ---
-
+toggleDropdown();
 setupDropdown();
 loadFeed();
 
