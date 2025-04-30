@@ -76,6 +76,10 @@ fetch('feedData.json')
     .catch(error => console.error('Erreur lors du chargement du JSON :', error)
 );
 
+
+const h2Formulaire = document.getElementById("h2-formulaire");
+h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
+
 const formulaire = document.getElementById("formulaireDynamique")
 //ajouter le contenu dans boutton
 formulaire.innerHTML = `
