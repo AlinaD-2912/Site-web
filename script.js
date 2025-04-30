@@ -73,37 +73,39 @@ fetch('feedData.json')
         });
     })
     .catch(error => console.error('Erreur lors du chargement du JSON :', error)
-);
+    );
 
-
+// FORMULAIRE
 const h2Formulaire = document.getElementById("h2-formulaire");
 h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
 
 const formulaire = document.getElementById("formulaireDynamique")
 //ajouter le contenu dans boutton
 formulaire.innerHTML = `
-<div>
-    <label for="nom">Nom de jeu:</label>
-</div>
-<div>
-    <input type="text" id="nom" name="Nom" required>
-</div>
-<div>
-<label for="msg">Description de jeu&nbsp;:</label>
-</div>
-<div>
-<textarea id="msg" name="user_message"></textarea>
-</div>
+
+        <div>
+            <label for="nom-de-jeu" class="fontTextDeFormulaire">Nom de jeu:</label>
+        </div>
+        <div>
+            <input type="text" id="nom-de-jeu" name="Nom" required>
+        </div>
+        <div>
+        <label for="msg" class="fontTextDeFormulaire">Description de jeu&nbsp;:</label>
+        </div>
+        <div>
+        <textarea id="msg" name="user_message"></textarea>
+        </div>
+
 `;
 
 const buttonFromulaire = document.getElementById("formulaireButton")
-buttonFromulaire.innerHTML = "Envoyer" 
+buttonFromulaire.innerHTML = "Envoyer"
 
 
 function ajouterDesArcticles() {
-    const nom = document.getElementById("nom").value.trim();
+    const nom = document.getElementById("nom-de-jeu").value.trim();
     const msg = document.getElementById("msg").value.trim();
-    const feed = document.querySelector(".feed"); 
+    const feed = document.querySelector(".feed");
 
     if (!nom || !msg) {
         alert("Veuillez remplir tous les champs.");
