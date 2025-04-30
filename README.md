@@ -7,7 +7,7 @@ N'existe pas
 - **Jeux** : 
 - **Gallery** : 
 ## Site en ligne
-[Accéder au site]([https://alinad-2912.github.io/StraySpawn-web-site/])
+[Accéder au site](https://alinad-2912.github.io/StraySpawn-web-site/)
 ## Technologies utilisées
 - HTML
 - CSS
