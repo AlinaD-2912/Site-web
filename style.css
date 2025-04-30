@@ -106,12 +106,22 @@
     font-weight: bold;
 }
 
-/* FEED */
+/* H1 avant FEED */
+.style-h1 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.style-h1:hover {
+    transform: scale(1.01);
+}
+
+/*  FEED  */
 .feed-container-mt {
     padding: 1rem;
 }
 
-/* Individual post block */
 .div-de-feed{
     border: 2px solid #ccc;
     border-radius: 12px;
@@ -122,13 +132,11 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect for posts */
 .div-de-feed:hover {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Images de feed */
 .images-feed img {
     width: 100%;
     height: auto;
@@ -136,12 +144,10 @@
     border-bottom: 1px solid #ddd;
 }
 
-/* Text section */
 .feed-contenu {
     padding: 1rem;
 }
 
-/* Game title */
 .feed-contenu h3 {
     font-size: 1.25rem;
     font-weight: 700;
@@ -150,7 +156,6 @@
     text-transform: uppercase;
 }
 
-/* Game description */
 .feed-contenu p {
     font-size: 1rem;
     line-height: 1.5;
