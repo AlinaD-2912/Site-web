@@ -79,10 +79,18 @@ fetch('feedData.json')
 const formulaire = document.getElementById("formulaireDynamique")
 //ajouter le contenu dans boutton
 formulaire.innerHTML = `
-<label for="nom">Nom de jeu:</label>
-<input type="text" id="nom" name="Nom" required>
+<div>
+    <label for="nom">Nom de jeu:</label>
+</div>
+<div>
+    <input type="text" id="nom" name="Nom" required>
+</div>
+<div>
 <label for="msg">Description de jeu&nbsp;:</label>
+</div>
+<div>
 <textarea id="msg" name="user_message"></textarea>
+</div>
 `;
 
 const buttonFromulaire = document.getElementById("formulaireButton")
