@@ -3,6 +3,7 @@
 
 // --- DROPDOWN MENU ---
 
+// fonction pour display menu dropdown
 function toggleDropdown() {
     document.getElementById("DropdownMenu").classList.toggle("button-dropdown-affichage");
 }

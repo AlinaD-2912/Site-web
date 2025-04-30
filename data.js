@@ -37,6 +37,16 @@ const gamesFeed = [
         nomDeJeu: 'METAL GEAR SOLID Δ: SNAKE EATER',
         description: 'Lhistoire, les personnages, les doublages, le gameplay et les musiques qui ont fait sensation font leur retour, dans une nouvelle version conçue pour les consoles modernes. ',
         image: 'images/metal-gear.webp'
+    },
+    {
+        nomDeJeu: 'Assassins Creed Shadows',
+        description: 'Plongez dans une épopée daction-aventure au cœur du Japon féodal ! Incarnez une Assassin shinobi meurtrière et un puissant samouraï légendaire tout en explorant un magnifique monde ouvert plongé dans le chaos.',
+        image: 'images/assassins.jpg'
+    },
+    {
+        nomDeJeu: 'Doom: The Dark Ages',
+        description: 'Enfilez les bottes tâchées de sang du DOOM Slayer afin de découvrir l’histoire inédite d’une sinistre guerre médiévale contre l’Enfer.',
+        image: 'images/doom.jpg'
     }
 ];
 
