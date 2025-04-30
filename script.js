@@ -43,8 +43,7 @@ let h1Content = 'Actualités des jeux vidéo';
 if (displayElement) {
     displayElement.innerHTML = h1Content;
 }
-
-
+/*
 // --- FEED ---
 function loadFeed() {
     const feedContainer = document.querySelector('.feed');
@@ -65,10 +64,37 @@ function loadFeed() {
         feedContainer.appendChild(postElement);
     });
 }
+*/
 
 // --- IINITIALISATION + REFRECH BUTTON ---
 toggleDropdown();
 setupDropdown();
-loadFeed();
+//loadFeed();
 
+fetch('feedData.json')
+    .then(reponse => reponse.json())
+    .then(data => {
+        // 50/50 chance
+        const shuffled = data.sort(() => Math.random() - 0.5);
+
+        const feedContainer = document.querySelector('.feed');
+        feedContainer.innerHTML = '';
+
+        shuffled.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'div-de-feed';
+            postElement.innerHTML = `
+                <div class="images-feed">
+                    <img src="${post.image}" alt="${post.nomDeJeu}" />
+                </div>
+                <div class="feed-contenu">
+                    <h2>${post.nomDeJeu}</h2>
+                    <p>${post.description}</p>
+                </div>
+            `;
+            feedContainer.appendChild(postElement);
+        });
+    })
+    .catch(error => console.error('Erreur lors du chargement du JSON :', error)
+);
 
