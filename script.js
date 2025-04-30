@@ -45,7 +45,6 @@ if (displayElement) {
 }
 
 // --- IINITIALISATION + REFRECH BUTTON ---
-toggleDropdown();
 setupDropdown();
 //loadFeed();
 
