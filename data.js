@@ -7,6 +7,7 @@ const dropdownItems = [
 
 
 /*-- FEED DATA  --*/
+
 const gamesFeed = [
     {
         nomDeJeu: 'Subnautica 2',
