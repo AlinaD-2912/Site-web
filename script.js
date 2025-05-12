@@ -189,3 +189,14 @@ function chargerGallery() {
 if (document.querySelector(".gallery-images")) {
     chargerGallery()
 }
+
+
+function setGalleryLayout(layout) {
+    const gallery = document.querySelector('.gallery-images')
+
+    // remove both layouts first
+    gallery.classList.remove('column', 'mosaique')
+
+    // add the selected one
+    gallery.classList.add(layout)
+}
