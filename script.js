@@ -171,11 +171,8 @@ if (h1Gallery) {
 
 function chargerGallery() {
     const gallery = document.querySelector(".gallery-images")
-
-    console.log('gallery:', gallery)
-
     gallery.innerHTML = ''
-    console.log('gallery:', gallery)
+
     imagesGallery.forEach(item => {
         const imageWrapper = document.createElement('div')
         imageWrapper.classList.add('image-wrapper')
@@ -195,13 +192,43 @@ if (document.querySelector(".gallery-images")) {
     chargerGallery()
 }
 
+function ajouterDesImagesGaleery() {
+    const form = document.getElementById("formPourLInputAjouter")
 
-function setGalleryLayout(layout) {
-    const gallery = document.querySelector('.gallery-images')
+    if (!document.getElementById("imageAjoute")) {
+        form.innerHTML = `
+            <input type="file" id="imageAjoute" name="imageAjoute" accept="image/png, image/jpeg" />
+            <button type="button" id="ajouterImageBtn">Ajouter l’image</button>
+        `;
 
-    // supprimer les class existant
-    gallery.classList.remove('column', 'mosaique')
+        // attendre jusqu'a la bouton est cliqué
+        document.getElementById("ajouterImageBtn").addEventListener("click", () => {
+            const imageInput = document.getElementById("imageAjoute")
+            const file = imageInput.files[0]
 
-    // ajouter le class selectionné
-    gallery.classList.add(layout)
+            if (!file) {
+                alert("Veuillez sélectionner une image.")
+                return
+            }
+
+            const reader = new FileReader()
+
+            reader.onload = function (event) {
+                const gallery = document.querySelector(".gallery-images")
+
+                const imageWrapper = document.createElement("div")
+                imageWrapper.classList.add("image-wrapper")
+
+                const img = document.createElement("img")
+                img.src = event.target.result
+                img.alt = "image ajoutée"
+                img.classList.add("img-gallery")
+
+                imageWrapper.appendChild(img)
+                gallery.appendChild(imageWrapper)
+            }
+
+            reader.readAsDataURL(file)
+        })
+    }
 }
