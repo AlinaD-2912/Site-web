@@ -251,9 +251,9 @@ function ajouterDesImagesGaleery() {
                 img.alt = "image ajoutée"
                 img.classList.add("img-gallery")
             
-                // Create delete button
+                // creation de boutton supprimer
                 const deleteBtn = document.createElement("button")
-                deleteBtn.textContent = "Supprimer"
+                deleteBtn.innerHTML = `<img class="closeIcon" src="images/close.png" alt="Mosaïque" class="layout-icon">`
                 deleteBtn.classList.add("delete-button")
                 deleteBtn.addEventListener("click", () => {
                     gallery.removeChild(imageWrapper)
