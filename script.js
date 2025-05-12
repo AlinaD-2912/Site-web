@@ -51,18 +51,18 @@ chargementDeLaPage();
 
 function chargementDeLaPage() {
     fetch('feedData.json')
-    .then(reponse => reponse.json())
-    .then(data => {
-        // 50/50 chance
-        const shuffled = data.sort(() => Math.random() - 0.5)
+        .then(reponse => reponse.json())
+        .then(data => {
+            // 50/50 chance
+            const shuffled = data.sort(() => Math.random() - 0.5)
 
-        const feedContainer = document.querySelector('.feed')
-        feedContainer.innerHTML = ''
+            const feedContainer = document.querySelector('.feed')
+            feedContainer.innerHTML = ''
 
-        shuffled.forEach(post => {
-            const postElement = document.createElement('div')
-            postElement.className = 'div-de-feed'
-            postElement.innerHTML = `
+            shuffled.forEach(post => {
+                const postElement = document.createElement('div')
+                postElement.className = 'div-de-feed'
+                postElement.innerHTML = `
                 <div class="images-feed">
                     <img src="${post.image}" alt="${post.nomDeJeu}" />
                 </div>
@@ -71,11 +71,11 @@ function chargementDeLaPage() {
                     <p>${post.description}</p>
                 </div>
             `;
-            feedContainer.appendChild(postElement);
-        });
-    })
-    .catch(error => console.error('Erreur lors du chargement du JSON :', error)
-    );
+                feedContainer.appendChild(postElement);
+            });
+        })
+        .catch(error => console.error('Erreur lors du chargement du JSON :', error)
+        );
 }
 
 
@@ -132,7 +132,7 @@ function ajouterDesArcticles() {
 
     if (imgDansImageInput) {
         const reader = new FileReader()
-        reader.onload = function(f) {
+        reader.onload = function (f) {
             article.innerHTML = `
         <div class="div-de-feed">
             <div class="images-feed">
@@ -176,12 +176,12 @@ function chargerGallery() {
     imagesGallery.forEach(item => {
         const imageWrapper = document.createElement('div')
         imageWrapper.classList.add('image-wrapper')
-    
+
         const img = document.createElement('img')
         img.src = item.name
         img.alt = 'image de gallery'
         img.classList.add('img-gallery')
-    
+
         imageWrapper.appendChild(img)
         gallery.appendChild(imageWrapper)
     })
@@ -201,6 +201,23 @@ function setGalleryLayout(layout) {
     // ajouter le class selectionné
     gallery.classList.add(layout)
 }
+function chargerImages () {
+    const columnBtn = document.getElementById("buttonColumn")
+    const mosaiqueBtn = document.getElementById("buttonMosaic")
+    const ajouter = document.getElementById("buttonAjouterGallery")
+
+    if (columnBtn) {
+        columnBtn.innerHTML = `<img class="layout-icon" src="images/columns.png" alt="Colonne" class="layout-icon">`
+    }
+
+    if (mosaiqueBtn) {
+        mosaiqueBtn.innerHTML = `<img class="layout-icon" src="images/mosaic.png" alt="Mosaïque" class="layout-icon">`
+    }
+    if(ajouter) {
+        ajouter.innerHTML = `<img class="layout-icon" src="images/plus.png" alt="Mosaïque" class="layout-icon">`
+    }
+}
+chargerImages()
 
 function ajouterDesImagesGaleery() {
     const form = document.getElementById("formPourLInputAjouter")
@@ -225,18 +242,29 @@ function ajouterDesImagesGaleery() {
 
             reader.onload = function (event) {
                 const gallery = document.querySelector(".gallery-images")
-
+            
                 const imageWrapper = document.createElement("div")
                 imageWrapper.classList.add("image-wrapper")
-
+            
                 const img = document.createElement("img")
                 img.src = event.target.result
                 img.alt = "image ajoutée"
                 img.classList.add("img-gallery")
-
+            
+                // Create delete button
+                const deleteBtn = document.createElement("button")
+                deleteBtn.textContent = "Supprimer"
+                deleteBtn.classList.add("delete-button")
+                deleteBtn.addEventListener("click", () => {
+                    gallery.removeChild(imageWrapper)
+                })
+            
+                // Add image and button to wrapper
                 imageWrapper.appendChild(img)
+                imageWrapper.appendChild(deleteBtn)
                 gallery.appendChild(imageWrapper)
             }
+            
 
             reader.readAsDataURL(file)
         })

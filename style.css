@@ -248,6 +248,31 @@
     object-fit: cover; 
     display: block;
 }
+.image-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.layout-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.bouttonsGalleryStyle {
+    border-color: #efeff0;
+    /* border: none; */
+}
 
 @media only screen and (min-width: 700px) {
     .feed{
