@@ -195,6 +195,21 @@
     color: #555;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+#buttonActualiser {
+    border-radius: 50px;
+    padding: 5px;
+    border-color: #bbbbbb;
+    font-size: 23px;
+    margin-top: 10px;
+    margin-left: 45%;
+    color: white;
+    background: linear-gradient(to right, #ff19ec, #00ffff);
+    font-weight: bold;
+    width: 160px;
+}
+#buttonActualiser:hover {
+    transform: scale(1.03);
+}
 
 
 @media only screen and (min-width: 700px) {

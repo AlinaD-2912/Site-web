@@ -46,9 +46,11 @@ if (displayElement) {
 
 // --- IINITIALISATION + REFRECH BUTTON ---
 setupDropdown();
+chargementDeLaPage();
 //loadFeed();
 
-fetch('feedData.json')
+function chargementDeLaPage() {
+    fetch('feedData.json')
     .then(reponse => reponse.json())
     .then(data => {
         // 50/50 chance
@@ -74,6 +76,8 @@ fetch('feedData.json')
     })
     .catch(error => console.error('Erreur lors du chargement du JSON :', error)
     );
+}
+
 
 // FORMULAIRE
 const h2Formulaire = document.getElementById("h2-formulaire");
