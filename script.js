@@ -9,10 +9,10 @@ function toggleDropdown() {
 }
 
 function setupDropdown() {
-    const button = document.getElementById("dropdownButton");
-    const dropdown = document.getElementById("DropdownMenu");
+    const button = document.getElementById("dropdownButton")
+    const dropdown = document.getElementById("DropdownMenu")
 
-    if (!button || !dropdown) return;
+    if (!button || !dropdown) return
 
     //ajouter le contenu dans boutton
     button.innerHTML = `
@@ -23,15 +23,15 @@ function setupDropdown() {
             </div>
             <img src="images/cat.png" alt="Site Logo" class="icon">
         </div>
-    `;
+    `
 
     // importer les elements de data.js
     console.log(dropdownItems)
     dropdownItems.forEach(item => {
-        const link = document.createElement('a');
-        link.href = item.href;
-        link.textContent = item.name;
-        dropdown.appendChild(link);
+        const link = document.createElement('a')
+        link.href = item.href
+        link.textContent = item.name
+        dropdown.appendChild(link)
     });
 }
 
@@ -52,14 +52,14 @@ fetch('feedData.json')
     .then(reponse => reponse.json())
     .then(data => {
         // 50/50 chance
-        const shuffled = data.sort(() => Math.random() - 0.5);
+        const shuffled = data.sort(() => Math.random() - 0.5)
 
-        const feedContainer = document.querySelector('.feed');
-        feedContainer.innerHTML = '';
+        const feedContainer = document.querySelector('.feed')
+        feedContainer.innerHTML = ''
 
         shuffled.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = 'div-de-feed';
+            const postElement = document.createElement('div')
+            postElement.className = 'div-de-feed'
             postElement.innerHTML = `
                 <div class="images-feed">
                     <img src="${post.image}" alt="${post.nomDeJeu}" />
@@ -95,36 +95,60 @@ formulaire.innerHTML = `
         <div>
         <textarea id="msg" name="user_message"></textarea>
         </div>
+        <div>
+        <input type="file" id="imageInput" name="imageInput" accept="image/png, image/jpeg" />
+        </div>
 
 `;
 
 const buttonFromulaire = document.getElementById("formulaireButton")
 buttonFromulaire.innerHTML = "Envoyer"
 
-
 function ajouterDesArcticles() {
-    const nom = document.getElementById("nom-de-jeu").value.trim();
-    const msg = document.getElementById("msg").value.trim();
-    const feed = document.querySelector(".feed");
+    const nom = document.getElementById("nom-de-jeu").value.trim()
+    const msg = document.getElementById("msg").value.trim()
+    const feed = document.querySelector(".feed")
+    const imageInput = document.getElementById("imageInput")
+    const imgDansImageInput = imageInput.files[0]
 
     if (!nom || !msg) {
-        alert("Veuillez remplir tous les champs.");
+        alert("Veuillez remplir tous les champs.")
         return;
     }
 
-    const article = document.createElement("div");
-    article.classList.add("article-post");
-    article.innerHTML = `
-    <div class="div-de-feed">
-        <div class="feed-contenu">
-            <h2>${nom}</h2>
-            <p>${msg}</p>
+    const article = document.createElement("div")
+    article.classList.add("article-post")
+
+    if (imgDansImageInput) {
+        const reader = new FileReader()
+        reader.onload = function(f) {
+            article.innerHTML = `
+        <div class="div-de-feed">
+            <div class="images-feed">
+                <img src="${f.target.result}" alt="image de jeu vidéo correspondant">
+            </div>
+            <div class="feed-contenu">
+                <h2>${nom}</h2>
+                <p>${msg}</p>
+            </div>
         </div>
-    </div>
-    `;
+        `;
+            feed.appendChild(article)
+        }
+        reader.readAsDataURL(imgDansImageInput)
+    }
+    else {
+        article.innerHTML = `
+            <div class="div-de-feed">
+                <div class="feed-contenu">
+                    <h2>${nom}</h2>
+                    <p>${msg}</p>
+                </div>
+            </div>
+        `;
+        feed.appendChild(article)
+    }
+    document.getElementById("formulaireDynamique").reset()
 
-    feed.appendChild(article);
-    document.getElementById("formulaireDynamique").reset();
 }
-
 
