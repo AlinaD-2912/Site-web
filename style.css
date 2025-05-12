@@ -235,11 +235,12 @@
     gap: 20px;
 }
 
-/* .image-wrapper {
+.image-wrapper {
     width: 190px; 
     height: 250px;
     overflow: hidden;
-} */
+    position: relative; 
+}
 
 .img-gallery {
     border-radius: 7%;
@@ -251,18 +252,18 @@
 .image-wrapper:hover {
     transform: scale(1.05);
 }
-
+/* 
 .image-wrapper {
     position: relative; 
     display: inline-block;
-}
+} */
 
 .delete-button {
     position: absolute;
     top: 5px;
     right: 5px;
-    background-color: red;
     color: white;
+    background-color: rgb(255, 68, 68);
     border: none;
     border-radius: 4px;
     padding: 2px 6px;
@@ -288,7 +289,7 @@
     width: 30px;
     height: 30px;
     object-fit: contain;
-    background-color: red;
+    background-color: rgb(255, 68, 68);
 }
 
 
@@ -314,4 +315,4 @@
     .gallery-images.mosaique {
         gap: 25px;
     }
-  }
+}
