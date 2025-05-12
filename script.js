@@ -192,6 +192,16 @@ if (document.querySelector(".gallery-images")) {
     chargerGallery()
 }
 
+function setGalleryLayout(layout) {
+    const gallery = document.querySelector('.gallery-images')
+
+    // supprimer les class existant
+    gallery.classList.remove('column', 'mosaique')
+
+    // ajouter le class selectionné
+    gallery.classList.add(layout)
+}
+
 function ajouterDesImagesGaleery() {
     const form = document.getElementById("formPourLInputAjouter")
 
