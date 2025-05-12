@@ -163,6 +163,11 @@ function ajouterDesArcticles() {
 
 }
 
+// ***************************         GALLERY       *************************
+const h1Gallery = document.getElementById("h1-gallery")
+if (h1Gallery) {
+    h1Gallery.innerHTML = "Peintures célèbres de femmes"
+}
 
 function chargerGallery() {
     const gallery = document.querySelector(".gallery-images")
@@ -185,7 +190,18 @@ function chargerGallery() {
     })
 }
 
-// Only run the gallery loader if the element is on the page
+
 if (document.querySelector(".gallery-images")) {
     chargerGallery()
+}
+
+
+function setGalleryLayout(layout) {
+    const gallery = document.querySelector('.gallery-images')
+
+    // supprimer les class existant
+    gallery.classList.remove('column', 'mosaique')
+
+    // ajouter le class selectionné
+    gallery.classList.add(layout)
 }
