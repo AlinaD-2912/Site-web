@@ -81,11 +81,14 @@ function chargementDeLaPage() {
 
 // FORMULAIRE
 const h2Formulaire = document.getElementById("h2-formulaire");
-h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
+if (h2Formulaire) {
+    h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
+}
 
 const formulaire = document.getElementById("formulaireDynamique")
 //ajouter le contenu dans boutton
-formulaire.innerHTML = `
+if (formulaire) {
+    formulaire.innerHTML = `
 
         <div>
             <label for="nom-de-jeu" class="fontTextDeFormulaire">Nom de jeu:</label>
@@ -104,9 +107,13 @@ formulaire.innerHTML = `
         </div>
 
 `;
+}
+
 
 const buttonFromulaire = document.getElementById("formulaireButton")
-buttonFromulaire.innerHTML = "Envoyer"
+if (buttonFromulaire) {
+    buttonFromulaire.innerHTML = "Envoyer"
+}
 
 function ajouterDesArcticles() {
     const nom = document.getElementById("nom-de-jeu").value.trim()
@@ -156,3 +163,29 @@ function ajouterDesArcticles() {
 
 }
 
+
+function chargerGallery() {
+    const gallery = document.querySelector(".gallery-images")
+
+    console.log('gallery:', gallery)
+
+    gallery.innerHTML = ''
+    console.log('gallery:', gallery)
+    imagesGallery.forEach(item => {
+        const imageWrapper = document.createElement('div')
+        imageWrapper.classList.add('image-wrapper')
+    
+        const img = document.createElement('img')
+        img.src = item.name
+        img.alt = 'image de gallery'
+        img.classList.add('img-gallery')
+    
+        imageWrapper.appendChild(img)
+        gallery.appendChild(imageWrapper)
+    })
+}
+
+// Only run the gallery loader if the element is on the page
+if (document.querySelector(".gallery-images")) {
+    chargerGallery()
+}

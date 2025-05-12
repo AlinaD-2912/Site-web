@@ -211,6 +211,26 @@
     transform: scale(1.03);
 }
 
+/**********************     GALLERY      *************************/
+.gallery-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-wrapper {
+    width: 400px; 
+    height: 550px;
+    overflow: hidden;
+}
+
+.img-gallery {
+    border-radius: 7%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
 
 @media only screen and (min-width: 700px) {
     .feed{
@@ -221,5 +241,12 @@
     }
     .div-de-feed{
         width: 400px;
+    }
+    .gallery-images {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
     }
   }
