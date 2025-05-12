@@ -1,7 +1,7 @@
-# StraySpawn
+# StraySpawn 🐱
 **StraySpawn** est un site où vous pouvez suivre l'actualité des nouvelles sorties de jeux vidéo et des nouveaux chefs-d'œuvre réalisés par des peintres débutants.
 ## Objectif du projet
-N'existe pas
+N'existe pas 🐈
 ## Pages du site
 - **Accueil** : 
 - **Jeux** : 
