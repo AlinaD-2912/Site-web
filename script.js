@@ -207,7 +207,7 @@ function setGalleryLayout(layout) {
 }
 
 // ----- DES IMAGES POUR LES ICONES DES BOUTTONS ---------
-function chargerImages () {
+function chargerImages() {
     const columnBtn = document.getElementById("buttonColumn")
     const mosaiqueBtn = document.getElementById("buttonMosaic")
     const ajouter = document.getElementById("buttonAjouterGallery")
@@ -219,7 +219,7 @@ function chargerImages () {
     if (mosaiqueBtn) {
         mosaiqueBtn.innerHTML = `<img class="layout-icon" src="images/mosaic.png" alt="Mosaïque" class="layout-icon">`
     }
-    if(ajouter) {
+    if (ajouter) {
         ajouter.innerHTML = `<img class="layout-icon" src="images/plus.png" alt="Mosaïque" class="layout-icon">`
     }
 }
@@ -247,43 +247,97 @@ function ajouterDesImagesGaleery() {
             const reader = new FileReader()
             reader.onload = function (event) {
                 const gallery = document.querySelector(".gallery-images")
-            
+
                 const imageWrapper = document.createElement("div")
                 imageWrapper.classList.add("image-wrapper")
-            
+
                 const img = document.createElement("img")
                 img.src = event.target.result
                 img.alt = "image ajoutée"
                 img.classList.add("img-gallery")
-            
+
                 const deleteBtn = document.createElement("button")
                 deleteBtn.innerHTML = `<img class="closeIcon" src="images/close.png" alt="Mosaïque" class="layout-icon">`
                 deleteBtn.classList.add("delete-button")
                 deleteBtn.addEventListener("click", () => {
                     gallery.removeChild(imageWrapper)
                 })
-            
+
                 imageWrapper.appendChild(img)
                 imageWrapper.appendChild(deleteBtn)
                 gallery.appendChild(imageWrapper)
             }
-            
+
             reader.readAsDataURL(file)
         })
     }
 }
 
-function ajouterLesElementDansLeSlides () {
-    const slides = document.querySelector(".slides")
+let currentIndex = 0;
 
-    const divSlide = document.createElement("div")
-    divSlide.classList.add("slide")
+function ajouterLesElementDansLeSlides() {
+    const slidesContainer = document.querySelector(".slides");
+    const divCarousel = document.querySelector(".carousel");
 
-    const imgSlide = document.createElement("img")
+    // Clear existing slides
+    slidesContainer.innerHTML = "";
 
-    const divCaption = document.createElement("div")
-    divCaption.classList.add("caption")
+    // Create all slides
+    publiciteItems.forEach((item, index) => {
+        const divSlide = document.createElement("div");
+        divSlide.classList.add("slide");
 
-    const h3Caption = document.createElement("h3")
-    const pCaption = document.createElement("p")
+        const img = document.createElement("img");
+        img.src = "images/" + item.img;
+        img.alt = item.h3;
+
+        const h3 = document.createElement("h3");
+        h3.textContent = item.h3;
+
+        const p = document.createElement("p");
+        p.textContent = item.p;
+
+        divSlide.appendChild(img);
+        divSlide.appendChild(h3);
+        divSlide.appendChild(p);
+
+        slidesContainer.appendChild(divSlide);
+    });
+
+    // creation des bouttons
+    const prevBtn = document.createElement("button");
+    prevBtn.id = "prev-btn";
+    prevBtn.textContent = "←";
+    prevBtn.classList.add("carousel-btn");
+
+    const nextBtn = document.createElement("button");
+    nextBtn.id = "next-btn";
+    nextBtn.textContent = "→";
+    nextBtn.classList.add("carousel-btn");
+
+    // Append buttons
+    divCarousel.appendChild(prevBtn);
+    divCarousel.appendChild(nextBtn);
+
+    
+    prevBtn.addEventListener("click", () => {
+        showSlide((currentIndex - 1 + publiciteItems.length) % publiciteItems.length);
+    });
+
+    nextBtn.addEventListener("click", () => {
+        showSlide((currentIndex + 1) % publiciteItems.length);
+    });
 }
+
+function showSlide(index) {
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+    });
+    currentIndex = index;
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    ajouterLesElementDansLeSlides();
+});
