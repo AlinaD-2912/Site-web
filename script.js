@@ -1,5 +1,5 @@
 
-// ***************************         INDEX HTML       *************************
+// ***************************     INDEX HTML       *************************
 
 // --- DROPDOWN MENU ---
 
@@ -79,7 +79,7 @@ function chargementDeLaPage() {
 }
 
 
-// FORMULAIRE
+// ----- FORMULAIRE -----------
 const h2Formulaire = document.getElementById("h2-formulaire");
 if (h2Formulaire) {
     h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
@@ -115,6 +115,7 @@ if (buttonFromulaire) {
     buttonFromulaire.innerHTML = "Envoyer"
 }
 
+// --------- AJOUTER LES ARTICLE DANS LE FEED ------------
 function ajouterDesArcticles() {
     const nom = document.getElementById("nom-de-jeu").value.trim()
     const msg = document.getElementById("msg").value.trim()
@@ -164,11 +165,13 @@ function ajouterDesArcticles() {
 }
 
 // ***************************         GALLERY       *************************
+
 const h1Gallery = document.getElementById("h1-gallery")
 if (h1Gallery) {
     h1Gallery.innerHTML = "Peintures célèbres de femmes"
 }
 
+// ----- AJOUTER LES IMAGES DANS LE GALLERY ------------
 function chargerGallery() {
     const gallery = document.querySelector(".gallery-images")
     gallery.innerHTML = ''
@@ -192,6 +195,7 @@ if (document.querySelector(".gallery-images")) {
     chargerGallery()
 }
 
+// ---- FONCTIONEMENT DE BOUTTONS MOSAIC ET COLUMN ---------
 function setGalleryLayout(layout) {
     const gallery = document.querySelector('.gallery-images')
 
@@ -201,6 +205,8 @@ function setGalleryLayout(layout) {
     // ajouter le class selectionné
     gallery.classList.add(layout)
 }
+
+// ----- DES IMAGES POUR LES ICONES DES BOUTTONS ---------
 function chargerImages () {
     const columnBtn = document.getElementById("buttonColumn")
     const mosaiqueBtn = document.getElementById("buttonMosaic")
@@ -219,6 +225,8 @@ function chargerImages () {
 }
 chargerImages()
 
+
+// ------- FOCNTIONNEMENT DE BOUTTON AJOUTER -----------
 function ajouterDesImagesGaleery() {
     const form = document.getElementById("formPourLInputAjouter")
 
@@ -232,14 +240,11 @@ function ajouterDesImagesGaleery() {
         document.getElementById("ajouterImageBtn").addEventListener("click", () => {
             const imageInput = document.getElementById("imageAjoute")
             const file = imageInput.files[0]
-
             if (!file) {
                 alert("Veuillez sélectionner une image.")
                 return
             }
-
             const reader = new FileReader()
-
             reader.onload = function (event) {
                 const gallery = document.querySelector(".gallery-images")
             
@@ -251,7 +256,6 @@ function ajouterDesImagesGaleery() {
                 img.alt = "image ajoutée"
                 img.classList.add("img-gallery")
             
-                // creation de boutton supprimer
                 const deleteBtn = document.createElement("button")
                 deleteBtn.innerHTML = `<img class="closeIcon" src="images/close.png" alt="Mosaïque" class="layout-icon">`
                 deleteBtn.classList.add("delete-button")
@@ -259,14 +263,27 @@ function ajouterDesImagesGaleery() {
                     gallery.removeChild(imageWrapper)
                 })
             
-                // Add image and button to wrapper
                 imageWrapper.appendChild(img)
                 imageWrapper.appendChild(deleteBtn)
                 gallery.appendChild(imageWrapper)
             }
             
-
             reader.readAsDataURL(file)
         })
     }
+}
+
+function ajouterLesElementDansLeSlides () {
+    const slides = document.querySelector(".slides")
+
+    const divSlide = document.createElement("div")
+    divSlide.classList.add("slide")
+
+    const imgSlide = document.createElement("img")
+
+    const divCaption = document.createElement("div")
+    divCaption.classList.add("caption")
+
+    const h3Caption = document.createElement("h3")
+    const pCaption = document.createElement("p")
 }
