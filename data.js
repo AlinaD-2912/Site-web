@@ -42,7 +42,7 @@ const publiciteItems = [
         p : "Existe-t-il une cour de musée plus époustouflante que celle du Los Angeles County Museum of Art (LACMA) à Los Angeles ? Des allées et des allées de lampadaires s'étendent à perte de vue en direction de la galerie. Le soir, lorsque les lampadaires sont allumés, le décor est romantique et semble taillé sur mesure pour un film."
     },
     {
-        img : "louvre-abu-dabi.jpeg",
+        img : "louvre.jpg",
         h3 : "The Louvre, Abu Dhabi",
         p : "Au Louvre Abu Dhabi, tout scintille. Entouré d'un canal artificiel, l'eau reflète des ombres chatoyantes sur la pierre blanche du bâtiment. C'est l'un des musées les plus ambitieux au monde, un spectacle qui ne cesse de couper le souffle. Et ce, avant même d'avoir admiré les œuvres, qui offrent un aperçu complet de l'histoire ancienne à la culture moderne. Une visite incontournable."
     },
