@@ -1,12 +1,12 @@
 body {
-    background-color: #efeff0;
+    background-color: #f5f4f4;
 }
 
 /*------------------   INDEX HTML --------------------------
 
 /*  MENU DROPDOWN  */
 .dropbtn {
-    background-color: #efeff0;
+    background-color: #f5f4f4;
     color: rgb(0, 0, 0);
     padding: 16px;
     font-size: 16px;
@@ -316,10 +316,6 @@ body {
     object-fit: contain;
     background-color: rgb(255, 68, 68);
 }
-
-
-
-
 
 /* STYLE GALLERY */
 .container {
