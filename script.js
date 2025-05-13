@@ -273,6 +273,7 @@ function ajouterDesImagesGaleery() {
     }
 }
 
+// CHANGEMENT DES DONNES DANS LA PUB
 let index = 0;
 let intervalId;
 
@@ -291,10 +292,10 @@ function showSlide(i) {
 function startCarousel() {
     intervalId = setInterval(() => {
         showSlide(1);
-    }, 3000); // change every 3 seconds
+    }, 3000); // changer chaque 3 secondes
 }
 
-
+// AFICHAGE DES DONNES DANS LA PUB
 function ajouterLesElementDansLeSlides() {
     const slidesContainer = document.querySelector(".slides")
     const divCarousel = document.querySelector(".carousel")
@@ -315,9 +316,15 @@ function ajouterLesElementDansLeSlides() {
         const p = document.createElement("p")
         p.textContent = item.p
 
+        const a = document.createElement("a")
+        a.href = "#"
+        a.textContent = "Visiter maintenant !"
+        a.classList.add("href-pub")
+
         divSlide.appendChild(img)
         divSlide.appendChild(h3)
         divSlide.appendChild(p)
+        divSlide.appendChild(a)
 
         slidesContainer.appendChild(divSlide)
 
@@ -329,7 +336,6 @@ function ajouterLesElementDansLeSlides() {
         allSlides[0].style.display = "block";
     }
 
-    // Start the carousel
     startCarousel();
 
 }
