@@ -273,69 +273,66 @@ function ajouterDesImagesGaleery() {
     }
 }
 
-let currentIndex = 0;
+let index = 0;
+let intervalId;
+
+function showSlide(i) {
+    const slides = document.querySelectorAll(".slide");
+
+    index += i;
+
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+
+    slides.forEach(slide => slide.style.display = "none");
+    slides[index].style.display = "block";
+}
+
+function startCarousel() {
+    intervalId = setInterval(() => {
+        showSlide(1);
+    }, 3000); // change every 3 seconds
+}
+
 
 function ajouterLesElementDansLeSlides() {
-    const slidesContainer = document.querySelector(".slides");
-    const divCarousel = document.querySelector(".carousel");
+    const slidesContainer = document.querySelector(".slides")
+    const divCarousel = document.querySelector(".carousel")
 
     // creation des elements dans le div slides
     publiciteItems.forEach((item, index) => {
-        const divSlide = document.createElement("div");
-        divSlide.classList.add("slide");
+        const divSlide = document.createElement("div")
+        divSlide.classList.add("slide")
 
-        const img = document.createElement("img");
-        img.src = "images/" + item.img;
-        img.alt = item.h3;
+        const img = document.createElement("img")
+        img.src = "images/" + item.img
+        img.alt = item.h3
         img.classList.add("imgDansLesSlides")
 
-        const h3 = document.createElement("h3");
-        h3.textContent = item.h3;
+        const h3 = document.createElement("h3")
+        h3.textContent = item.h3
 
-        const p = document.createElement("p");
-        p.textContent = item.p;
+        const p = document.createElement("p")
+        p.textContent = item.p
 
-        divSlide.appendChild(img);
-        divSlide.appendChild(h3);
-        divSlide.appendChild(p);
+        divSlide.appendChild(img)
+        divSlide.appendChild(h3)
+        divSlide.appendChild(p)
 
-        slidesContainer.appendChild(divSlide);
-    });
+        slidesContainer.appendChild(divSlide)
 
-    // creation des bouttons
-    const prevBtn = document.createElement("button");
-    prevBtn.id = "prev-btn";
-    prevBtn.textContent = "←";
-    prevBtn.classList.add("carousel-btn");
+    })
 
-    const nextBtn = document.createElement("button");
-    nextBtn.id = "next-btn";
-    nextBtn.textContent = "→";
-    nextBtn.classList.add("carousel-btn");
+    const allSlides = document.querySelectorAll(".slide");
+    allSlides.forEach(slide => slide.style.display = "none");
+    if (allSlides.length > 0) {
+        allSlides[0].style.display = "block";
+    }
 
-    // Append buttons
-    divCarousel.appendChild(prevBtn);
-    divCarousel.appendChild(nextBtn);
+    // Start the carousel
+    startCarousel();
 
-    
-    prevBtn.addEventListener("click", () => {
-        showSlide((currentIndex - 1 + publiciteItems.length) % publiciteItems.length);
-    });
-
-    nextBtn.addEventListener("click", () => {
-        showSlide((currentIndex + 1) % publiciteItems.length);
-    });
 }
-
-function showSlide(index) {
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach((slide, i) => {
-        slide.style.display = i === index ? "block" : "none";
-    });
-    currentIndex = index;
-}
-
-
 document.addEventListener("DOMContentLoaded", () => {
     ajouterLesElementDansLeSlides();
 });
