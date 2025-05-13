@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
+
 <body>
-    
+
     <!-- NAVIGATION MOBILE-->
     <div class="dropdown">
         <button id="dropdownButton" onclick="toggleDropdown()" class="dropbtn"></button>
         <div id="DropdownMenu" class="dropdown-content"></div>
     </div>
 
+    
+    <!-- CAROUSEL -->
+    <div class="container">
+        <div class="carousel">
+            <div class="slides">
+            </div>
+            <div class="indicators">
+            </div>
+        </div>
+    </div>
+
+
     <h1 id="h1-gallery" class="style-h1"></h1>
     <button id="buttonColumn" onclick="setGalleryLayout('column')" class="bouttonsGalleryStyle"></button>
     <button id="buttonMosaic" onclick="setGalleryLayout('mosaique')" class="bouttonsGalleryStyle"></button>
-    <button id="buttonAjouterGallery" onclick="ajouterDesImagesGaleery()" class="bouttonsGalleryStyle">Ajouter</button>
+    <button id="buttonAjouterGallery" onclick="ajouterDesImagesGaleery()" class="bouttonsGalleryStyle"></button>
     <form action="" id="formPourLInputAjouter"></form>
     <div class="gallery-images "></div>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
