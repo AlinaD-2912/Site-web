@@ -279,10 +279,7 @@ function ajouterLesElementDansLeSlides() {
     const slidesContainer = document.querySelector(".slides");
     const divCarousel = document.querySelector(".carousel");
 
-    // Clear existing slides
-    slidesContainer.innerHTML = "";
-
-    // Create all slides
+    // creation des elements dans le div slides
     publiciteItems.forEach((item, index) => {
         const divSlide = document.createElement("div");
         divSlide.classList.add("slide");
