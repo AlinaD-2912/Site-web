@@ -290,6 +290,7 @@ function ajouterLesElementDansLeSlides() {
         const img = document.createElement("img");
         img.src = "images/" + item.img;
         img.alt = item.h3;
+        img.classList.add("imgDansLesSlides")
 
         const h3 = document.createElement("h3");
         h3.textContent = item.h3;

@@ -1,4 +1,4 @@
-* {
+body {
     background-color: #efeff0;
 }
 
@@ -322,12 +322,12 @@
 
 
 /* STYLE GALLERY */
-
-
 .container {
     max-width: 700px;
     margin: 50px auto;
-    background: white;
+    background: #ededed;
+    background: radial-gradient(circle, rgba(237, 237, 237, 1) 0%, rgba(243, 198, 247, 1) 51%, rgba(171, 210, 255, 1) 100%);
+    border-radius: 15%;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -340,6 +340,7 @@
 .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
+
 }
 
 .slide {
@@ -368,7 +369,6 @@
     border: none;
     border-radius: 50%;
     margin: 0 4px;
-    background: #ccc;
     cursor: pointer;
 }
 
@@ -415,6 +415,10 @@
     right: 10px;
 }
 
+.imgDansLesSlides {
+    border-radius: 5%;
+
+}
 
 @media only screen and (min-width: 700px) {
     .feed {
@@ -441,5 +445,24 @@
 
     .gallery-images.mosaique {
         gap: 25px;
+    }
+
+    .container {
+        min-width: 900px;
+    }
+
+    .slide {
+        width: 1000px;
+        height: 600px;
+    }
+
+    .slide h3 {
+        font-size: 25px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .slide p {
+        font-size: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
     }
 }
