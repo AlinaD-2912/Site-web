@@ -52,3 +52,11 @@ const publiciteItems = [
         p : "À un peu moins d'une heure du centre-ville de Copenhague se trouve cette époustouflante galerie d'art moderne, nichée sur un vaste terrain niché sur la côte danoise. Ses jardins de sculptures comptent parmi les plus beaux au monde, regorgeant d'œuvres qui semblent cachées parmi les sapins scandinaves, même si la température peut être un peu fraîche en plein hiver."
     }
 ]
+
+const niveauDeJeu = [
+    {
+        facile: 5,
+        moyen: 15,
+        difficile: 25
+    }
+]
