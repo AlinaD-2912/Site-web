@@ -420,6 +420,27 @@ body {
 .href-pub {
     font-size: 30px;
 }
+select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #fcd7ff;
+    margin-top: 10px;
+}
+
+.imagesJeux{
+    width: 100px;         
+    height: 200px;
+    object-fit: cover;     
+    border-radius: 8px;    
+    margin: 5px;
+}
+#gameContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+}
 
 @media only screen and (min-width: 700px) {
     .feed {
@@ -470,11 +491,12 @@ body {
     .slide img {
         max-width: 820px;
     }
+    /* .imagesJeux{
+        min-width: 250px;         
+        height: 300px;
+        object-fit: cover; 
+        
+    } */
+    
 }
 
-select {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-}

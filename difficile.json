@@ -6,6 +6,34 @@
         "id": 3,
         "nbDePaires": 25,
         "nombreDeTentatives": 2,
-        "images": ["img1.jpg", "img2.jpg", "img5.jpg"]
+        "images": 
+        [
+            "waterfall1.jpeg",
+            "waterfall2.jpeg",
+            "waterfall3.webp",
+            "waterfall4.jpg",
+            "waterfall5.jpeg",
+            "waterfall6.jpeg",
+            "waterfall7.jpg",
+            "waterfall8.jpg",
+            "waterfall9.jpeg",
+            "waterfall10.avif",
+            "waterfall11.jpg",
+            "waterfall12.jpeg",
+            "waterfall13.webp",
+            "waterfall14.jpg",
+            "waterfall15.jpg",
+            "waterfall16.jpg",
+            "waterfall17.jpg",
+            "waterfall18.webp",
+            "waterfall19.jpg",
+            "waterfall20.jpg",
+            "waterfall21.jpeg",
+            "waterfall22.jpg",
+            "waterfall23.webp",
+            "waterfall24.jpg",
+            "waterfall25.webp"
+        ]
     }
+    
 ]
