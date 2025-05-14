@@ -32,21 +32,21 @@ function setupDropdown() {
         link.href = item.href
         link.textContent = item.name
         dropdown.appendChild(link)
-    });
+    })
 }
 
 // -----   H1 ----
-let displayElement = document.getElementById('h1-accueil');
-let h1Content = 'Actualités des jeux vidéo';
+let displayElement = document.getElementById('h1-accueil')
+let h1Content = 'Actualités des jeux vidéo'
 
 // if element exists
 if (displayElement) {
-    displayElement.innerHTML = h1Content;
+    displayElement.innerHTML = h1Content
 }
 
 // --- IINITIALISATION + REFRECH BUTTON ---
-setupDropdown();
-chargementDeLaPage();
+setupDropdown()
+chargementDeLaPage()
 
 function chargementDeLaPage() {
     fetch('feedData.json')
@@ -69,12 +69,12 @@ function chargementDeLaPage() {
                     <h2>${post.nomDeJeu}</h2>
                     <p>${post.description}</p>
                 </div>
-            `;
-                feedContainer.appendChild(postElement);
-            });
+            `
+                feedContainer.appendChild(postElement)
+            })
         })
         .catch(error => console.error('Erreur lors du chargement du JSON :', error)
-        );
+        )
 }
 
 
@@ -274,25 +274,25 @@ function ajouterDesImagesGaleery() {
 }
 
 // CHANGEMENT DES DONNES DANS LA PUB
-let index = 0;
-let intervalId;
+let index = 0
+let intervalId
 
 function showSlide(i) {
-    const slides = document.querySelectorAll(".slide");
+    const slides = document.querySelectorAll(".slide")
 
     index += i;
 
-    if (index >= slides.length) index = 0;
-    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0
+    if (index < 0) index = slides.length - 1
 
-    slides.forEach(slide => slide.style.display = "none");
-    slides[index].style.display = "block";
+    slides.forEach(slide => slide.style.display = "none")
+    slides[index].style.display = "block"
 }
 
 function startCarousel() {
     intervalId = setInterval(() => {
-        showSlide(1);
-    }, 3500); // changer chaque 3 secondes
+        showSlide(1)
+    }, 3500) // changer chaque 3 secondes
 }
 
 // AFICHAGE DES DONNES DANS LA PUB
@@ -332,10 +332,10 @@ function ajouterLesElementDansLeSlides() {
 
     })
 
-    const allSlides = document.querySelectorAll(".slide");
-    allSlides.forEach(slide => slide.style.display = "none");
+    const allSlides = document.querySelectorAll(".slide")
+    allSlides.forEach(slide => slide.style.display = "none")
     if (allSlides.length > 0) {
-        allSlides[0].style.display = "block";
+        allSlides[0].style.display = "block"
     }
 
     startCarousel();
@@ -345,27 +345,92 @@ function ajouterLesElementDansLeSlides() {
 ajouterLesElementDansLeSlides()
 
 // ***************************       JEUX       *************************
+//verifier que les elements existent avant les fetch
+window.addEventListener("DOMContentLoaded", () => {
+    const select = document.getElementById("difficulty")
+    const label = document.getElementById("labelDifficulty")
 
-window.addEventListener("DOMContentLoaded", async () => {
-    const select = document.getElementById("difficulty");
-    const label = document.getElementById("labelDifficulty");
+    // 1. Define API URLs for each difficulty
+    const apiUrls = {
+        facile: "https://mocki.io/v1/11111111-aaaa-bbbb-cccc-111111111111",
+        moyen: "https://mocki.io/v1/22222222-aaaa-bbbb-cccc-222222222222",
+        difficile: "https://mocki.io/v1/33333333-aaaa-bbbb-cccc-333333333333"
+    };
 
-    // Fetch le API mocki.io
-    const response = await fetch("https://mocki.io/v1/bdfa05cc-da6d-4229-829c-ea59807741b7");
-
-    const data = await response.json();
-
+    // 2. Update label
     if (label) {
-        label.textContent = "Choisissez le niveau :";
+        label.textContent = "Choisissez le niveau :"
     }
 
-    // Prendre les niveaux de difficultées de json
+    // 3. Manually add options
     if (select) {
-        data.forEach(game => {
-            const option = document.createElement("option");
-            option.value = game.niveau; 
-            option.textContent = `${game.niveau.charAt(0).toUpperCase() + game.niveau.slice(1)} - ${game.nom}`;
-            select.appendChild(option);
+        Object.keys(apiUrls).forEach(niveau => {
+            const option = document.createElement("option")
+            option.value = niveau
+            option.textContent = niveau.charAt(0).toUpperCase() + niveau.slice(1)
+            select.appendChild(option)
+        });
+
+        // 4. Add change event listener
+        select.addEventListener("change", async () => {
+            const selectedNiveau = select.value
+            const url = apiUrls[selectedNiveau]
+
+            try {
+                const response = await fetch(url)
+                const data = await response.json()
+                console.log("Données du jeu sélectionné :", data)
+
+                // 👉 You can now use data.nom, data.images, data.nbDePaires, etc.
+            } catch (error) {
+                console.error("Erreur lors du chargement des données :", error)
+            }
         });
     }
 });
+window.addEventListener("DOMContentLoaded", () => {
+    const select = document.getElementById("difficulty")
+    const label = document.getElementById("labelDifficulty")
+
+    // 1. Define API URLs for each difficulty
+    const apiUrls = {
+        facile: "https://mocki.io/v1/068f61c6-6b2c-4b6d-85dd-3e30281a019f",
+        moyen: "https://mocki.io/v1/9463dec6-6f9d-4bf4-8baf-a607c3273510",
+        difficile: "https://mocki.io/v1/bbfa819b-29f7-4847-9170-f921b099b83f"
+    }
+
+    // 2. Update label
+    if (label) {
+        label.textContent = "Choisissez le niveau :"
+    }
+
+    // 3. Manually add options
+    if (select) {
+
+        select.innerHTML = ""
+
+        Object.keys(apiUrls).forEach(niveau => {
+            const option = document.createElement("option")
+            option.value = niveau
+            option.textContent = niveau.charAt(0).toUpperCase() + niveau.slice(1)
+            select.appendChild(option)
+        })
+
+        // 4. Add change event listener
+        select.addEventListener("change", async () => {
+            const selectedNiveau = select.value
+            const url = apiUrls[selectedNiveau]
+
+            try {
+                const response = await fetch(url)
+                const data = await response.json()
+                console.log("Données du jeu sélectionné :", data)
+
+                // 👉 You can now use data.nom, data.images, data.nbDePaires, etc.
+            } catch (error) {
+                console.error("Erreur lors du chargement des données :", error)
+            }
+        })
+    }
+})
+
