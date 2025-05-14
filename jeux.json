@@ -1,0 +1,28 @@
+ [
+    {
+        "nom": "",
+        "theme":"",
+        "niveau":"facile",
+        "id": 1,
+        "nbDePaires": 5,
+        "nombreDeTentatives": 5
+
+    },
+    {
+        "nom": "",
+        "theme":"",
+        "niveau":"moyen",
+        "id": 2,
+        "nbDePaires": 15,
+        "nombreDeTentatives": 3
+
+    },
+    {
+        "nom": "",
+        "theme":"",
+        "niveau":"difficile",
+        "id": 3,
+        "nbDePaires": 25,
+        "nombreDeTentatives": 2
+    }
+]
