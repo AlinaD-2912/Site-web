@@ -53,10 +53,29 @@ const publiciteItems = [
     }
 ]
 
-const niveauDeJeu = [
-    {
-        facile: 5,
-        moyen: 15,
-        difficile: 25
-    }
-]
+const niveauDeJeu = {
+    facile: [{
+        nom: '',
+        theme:'',
+        id: 1,
+        nbDePaires: 5,
+        nombreDeTentatives: 5
+
+    }],
+    moyen: [{
+        nom: '',
+        theme:'',
+        id: 2,
+        nbDePaires: 15,
+        nombreDeTentatives: 3
+
+    }],
+    difficile: [{
+        nom: '',
+        theme:'',
+        id: 3,
+        nbDePaires: 25,
+        nombreDeTentatives: 2
+
+    }]
+}
