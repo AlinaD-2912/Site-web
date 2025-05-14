@@ -82,7 +82,6 @@ function chargementDeLaPage() {
 const h2Formulaire = document.getElementById("formulaire");
 if (h2Formulaire){
     h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
-
 }
 
 
@@ -301,7 +300,7 @@ function ajouterLesElementDansLeSlides() {
     const slidesContainer = document.querySelector(".slides")
 
     // creation des elements dans le div slides
-    publiciteItems.forEach((item, index) => {
+        publiciteItems.forEach((item, index) => {
         const divSlide = document.createElement("div")
         divSlide.classList.add("slide")
 
@@ -326,7 +325,10 @@ function ajouterLesElementDansLeSlides() {
         divSlide.appendChild(p)
         divSlide.appendChild(a)
 
-        slidesContainer.appendChild(divSlide)
+        if(slidesContainer) {
+            slidesContainer.appendChild(divSlide)
+        }
+       
 
     })
 
@@ -342,3 +344,28 @@ function ajouterLesElementDansLeSlides() {
 
 ajouterLesElementDansLeSlides()
 
+// ***************************       JEUX       *************************
+
+window.addEventListener("DOMContentLoaded", async () => {
+    const select = document.getElementById("difficulty");
+    const label = document.getElementById("labelDifficulty");
+
+    // Fetch le API mocki.io
+    const response = await fetch("https://mocki.io/v1/bdfa05cc-da6d-4229-829c-ea59807741b7");
+
+    const data = await response.json();
+
+    if (label) {
+        label.textContent = "Choisissez le niveau :";
+    }
+
+    // Prendre les niveaux de difficultées de json
+    if (select) {
+        data.forEach(game => {
+            const option = document.createElement("option");
+            option.value = game.niveau; 
+            option.textContent = `${game.niveau.charAt(0).toUpperCase() + game.niveau.slice(1)} - ${game.nom}`;
+            select.appendChild(option);
+        });
+    }
+});
