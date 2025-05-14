@@ -47,7 +47,6 @@ if (displayElement) {
 // --- IINITIALISATION + REFRECH BUTTON ---
 setupDropdown();
 chargementDeLaPage();
-//loadFeed();
 
 function chargementDeLaPage() {
     fetch('feedData.json')
@@ -80,10 +79,12 @@ function chargementDeLaPage() {
 
 
 // ----- FORMULAIRE -----------
-const h2Formulaire = document.getElementById("h2-formulaire");
-if (h2Formulaire) {
+const h2Formulaire = document.getElementById("formulaire");
+if (h2Formulaire){
     h2Formulaire.innerHTML = "Pour ajouter un nouvel article à notre site, remplissez le formulaire"
+
 }
+
 
 const formulaire = document.getElementById("formulaireDynamique")
 //ajouter le contenu dans boutton
@@ -292,13 +293,12 @@ function showSlide(i) {
 function startCarousel() {
     intervalId = setInterval(() => {
         showSlide(1);
-    }, 3000); // changer chaque 3 secondes
+    }, 3500); // changer chaque 3 secondes
 }
 
 // AFICHAGE DES DONNES DANS LA PUB
 function ajouterLesElementDansLeSlides() {
     const slidesContainer = document.querySelector(".slides")
-    const divCarousel = document.querySelector(".carousel")
 
     // creation des elements dans le div slides
     publiciteItems.forEach((item, index) => {
@@ -339,6 +339,6 @@ function ajouterLesElementDansLeSlides() {
     startCarousel();
 
 }
-document.addEventListener("DOMContentLoaded", () => {
-    ajouterLesElementDansLeSlides();
-});
+
+ajouterLesElementDansLeSlides()
+
