@@ -1,7 +1,7 @@
 # StraySpawn 🐱
 **StraySpawn** est un site où vous pouvez suivre l'actualité des nouvelles sorties de jeux vidéo et des nouveaux chefs-d'œuvre réalisés par des peintres débutants.
 ## Objectif du projet
-N'existe pas 🐈
+Créer un site web dynamique en JavaScript, avec génération des éléments via le DOM, et actualisation du contenu des pages à l’aide d’API et de requêtes fetch.
 ## Pages du site
 - **Accueil** : 
 - **Jeux** : 
