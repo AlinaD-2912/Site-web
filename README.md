@@ -16,7 +16,18 @@ Créer un site web 100 % dynamique avec JavaScript, sans frameworks, dans un o
 
   - Formulaire (en haut à gauche) permettant à l’utilisateur d’ajouter ses propres articles, avec image, nom du jeu et description.
   - L'article est affiché immédiatement dans la liste.
-- **Jeux** : 
+- **Jeux** :
+  - Bannière défilante automatique toutes les 4–5 secondes présentant des musées célèbres.
+
+  - Section “Femmes dans l'art” avec tableaux célèbres (ex. Mona Lisa…).
+
+  - Boutons de manipulation d’affichage :
+
+      - Vue en mosaïque
+
+      - Vue en colonne
+
+  - Ajout d’images personnalisées à la galerie (upload utilisateur)
 - **Gallery** : 
 ## Site en ligne
 [Accéder au site](https://alinad-2912.github.io/StraySpawn-web-site/)
