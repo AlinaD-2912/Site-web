@@ -16,7 +16,7 @@ Créer un site web 100 % dynamique avec JavaScript, sans frameworks, dans un o
 
   - Formulaire (en haut à gauche) permettant à l’utilisateur d’ajouter ses propres articles, avec image, nom du jeu et description.
   - L'article est affiché immédiatement dans la liste.
-- **Jeux** :
+- **Gallery** :
   - Bannière défilante automatique toutes les 4–5 secondes présentant des musées célèbres.
 
   - Section “Femmes dans l'art” avec tableaux célèbres (ex. Mona Lisa…).
@@ -28,7 +28,11 @@ Créer un site web 100 % dynamique avec JavaScript, sans frameworks, dans un o
       - Vue en colonne
 
   - Ajout d’images personnalisées à la galerie (upload utilisateur)
-- **Gallery** : 
+- **Jeux** :
+  - Prototype d’un jeu de mémoire :
+L’utilisateur doit retrouver les paires d’images identiques après les avoir mémorisées rapidement avant qu’elles ne se cachent.
+
+  - L’objectif est de stimuler la mémoire visuelle avec une mécanique simple mais fun (semblable au jeu Memory).
 ## Site en ligne
 [Accéder au site](https://alinad-2912.github.io/StraySpawn-web-site/)
 ## Technologies utilisées
