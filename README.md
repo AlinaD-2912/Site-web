@@ -1,9 +1,21 @@
 # StraySpawn 🐱
-**StraySpawn** est un site où vous pouvez suivre l'actualité des nouvelles sorties de jeux vidéo et des nouveaux chefs-d'œuvre réalisés par des peintres débutants.
+**StraySpawn** est un site interactif dédié à l’actualité des jeux vidéo et à la découverte artistique. Il combine des données dynamiques, des animations et des interactions en temps réel, le tout généré principalement en JavaScript.
+
+
 ## Objectif du projet
-Créer un site web dynamique en JavaScript, avec génération des éléments via le DOM, et actualisation du contenu des pages à l’aide d’API et de requêtes fetch.
+Créer un site web 100 % dynamique avec JavaScript, sans frameworks, dans un objectif pédagogique. L’accent est mis sur la manipulation du DOM, les appels API via fetch(), la gestion d’événements, et la création d’interfaces utilisateur réactives.
 ## Pages du site
-- **Accueil** : 
+- **Accueil – Actualités jeux vidéo** :
+  - Cartes générées dynamiquement via JavaScript à partir de données API JSON.
+
+  - Deux moyens d’actualiser la liste des jeux :
+
+    - Via un bouton "Actualiser" (mise à jour partielle, sans recharger la page)
+
+    - Ou en rechargeant la page (récupération automatique)
+
+  - Formulaire (en haut à gauche) permettant à l’utilisateur d’ajouter ses propres articles, avec image, nom du jeu et description.
+  - L'article est affiché immédiatement dans la liste.
 - **Jeux** : 
 - **Gallery** : 
 ## Site en ligne
